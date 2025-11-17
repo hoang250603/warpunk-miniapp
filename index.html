@@ -1,16 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <title>Warpunk</title>
-  <!-- Metadata cho Farcaster Mini App -->
   <meta name="fc:frame" content="vNext">
-  <meta name="fc:frame:image" content="https://warpunk-miniapp.vercel.app/warp-punk.png">
-  <meta name="fc:frame:button:1" content="Play Warpunk">
-  <meta name="fc:frame:post_url" content="https://yourdomain.com/api/action">
+  <meta name="fc:frame:image" content="https://yourdomain.com/preview.png">
+  <meta name="fc:frame:button:1" content="Generate Warpunk">
+  <meta name="fc:frame:post_url" content="https://yourdomain.com/api/generate">
 </head>
 <body>
-  <h1>Welcome to Warpunk</h1>
-  <p>Mini App thử nghiệm trên Farcaster.</p>
+  <h1>Warpunk Generator</h1>
+  <form id="gen">
+    <input type="file" name="avatar" accept="image/*" required />
+    <select name="style">
+      <option value="neon">Neon Punk</option>
+      <option value="mech">Mech Punk</option>
+      <option value="street">Street Punk</option>
+    </select>
+    <button type="submit">Generate</button>
+  </form>
+  <div id="result"></div>
+  <script>
+    const form = document.getElementById('gen');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const res = await fetch('/api/generate', { method: 'POST', body: fd });
+      const data = await res.json();
+      document.getElementById('result').innerHTML = `
+        <img src="${data.imageUrl}" width="400"/>
+        <button onclick="mint('${data.imageUrl}','${data.style}')">Mint NFT</button>
+      `;
+    });
+    async function mint(imageUrl, style) {
+      const res = await fetch('/api/mint', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ imageUrl, style })
+      });
+      alert((await res.json()).message);
+    }
+  </script>
 </body>
 </html>
