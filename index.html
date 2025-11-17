@@ -3,14 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Warpunk Mini App</title>
-  <!-- Metadata cho Farcaster Mini App -->
+
+  <!-- Khai báo để Farcaster nhận diện frame -->
   <meta name="fc:frame" content="vNext">
-  <meta name="fc:frame:image" content="https://placehold.co/600x400?text=Warpunk+NFT">
+
+  <!-- Ảnh preview cho Mini App trong Warpcast -->
+  <meta name="fc:frame:image" content="https://warpunk-miniapp.vercel.app/warp-punk.png">
+
+  <!-- Nút hành động (giữ nguyên nếu chưa có backend) -->
   <meta name="fc:frame:button:1" content="Mint Warpunk">
-  <meta name="fc:frame:post_url" content="https://your-vercel-app.vercel.app/api/mint">
+
+  <!-- API nhận sự kiện bấm nút: tạm thời để domain Vercel của bạn -->
+  <meta name="fc:frame:post_url" content="https://warpunk-miniapp.vercel.app/api/mint">
 </head>
 <body>
   <h1>Warpunk Mini App</h1>
-  <p>Đây là giao diện thử nghiệm. Artwork sẽ cập nhật sau.</p>
+
+  <!-- Hiển thị ảnh ngay trong trang -->
+  <img src="/warp-punk.png" alt="Warp Punk" width="600">
+
+  <p>hoang dep trai.</p>
 </body>
 </html>
