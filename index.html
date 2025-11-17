@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Warpunk Mini App</title>
-
-  <!-- Khai báo để Farcaster nhận diện frame -->
+  <title>Cloaked Demo</title>
+  <!-- Metadata cho Farcaster Mini App -->
   <meta name="fc:frame" content="vNext">
-
-  <!-- Ảnh preview cho Mini App trong Warpcast -->
- <meta name="fc:frame:image" content="https://warpunk-miniapp.vercel.app/warp-punk.png">
-  <!-- Nút hành động (giữ nguyên nếu chưa có backend) -->
-  <meta name="fc:frame:button:1" content="Mint Warpunk">
-
-  <!-- API nhận sự kiện bấm nút: tạm thời để domain Vercel của bạn -->
-  <meta name="fc:frame:post_url" content="https://warpunk-miniapp.vercel.app/api/mint">
+  <meta name="fc:frame:image" content="https://yourdomain.com/preview.png">
+  <meta name="fc:frame:button:1" content="Bấm vào đây">
+  <meta name="fc:frame:post_url" content="https://yourdomain.com/api/action">
 </head>
 <body>
-  <h1>Warpunk Mini App</h1>
-
-  <!-- Hiển thị ảnh ngay trong trang -->
-<img src="/warp-punk.png" alt="Warpunk" width="600">
-  <p>Ảnh đã được thay thế bằng nhân vật gấu đỏ.</p>
+  <h1>Mini App Demo</h1>
+  <p>Đây là một mini app đơn giản giống Cloaked.</p>
 </body>
 </html>
